@@ -9,13 +9,36 @@
 </head>
 <body>
 <h1>VALIDATION 연습을 위한 페이지</h1>
-<form action="/valid/main" method="post">
-    아이디: <input type="text" name="id" th:value="${superForm.id}"> <br>
-    문자: <input type="text" name="validForm.text" th:value="${superForm.validForm.text}"> <br>
-    숫자: <input type="number" name="validForm.number" th:value="${superForm.validForm.number}"> <br>
-    날짜: <input type="date" name="validForm.date" th:value="${superForm.validForm.date}"> <br>
+<form action="/valid/main" method="post" th:object="${superForm}">
+    <div th:text="${#fields.globalErrors()}">
+        여기는 전역 에러가 있으면 표시되는 곳입니다
+    </div>
+    <div th:text="${#fields.errors()}">
+        여기는 필드 에러가 있으면 표시되는 곳입니다
+    </div>
+    아이디: <input type="text" name="id"> <br>
+    문자: <input type="text" name="validForm.text"> <br>
+    숫자: <input type="number" name="validForm.number"> <br>
+    날짜: <input type="date" name="validForm.date"> <br>
     <button>보내기</button>
 </form>
+
+
+<!--    <form action="/valid/main" method="post">-->
+<!--        아이디: <input type="text" name="id" th:value="${superForm.id}"> <br>-->
+<!--        문자: <input type="text" name="validForm.text" th:value="${superForm.validForm.text}"> <br>-->
+<!--        숫자: <input type="number" name="validForm.number" th:value="${superForm.validForm.number}"> <br>-->
+<!--        날짜: <input type="date" name="validForm.date" th:value="${superForm.validForm.date}"> <br>-->
+<!--        <button>보내기</button>-->
+<!--    </form>-->
+
+
+
+
+
+
+
+
 
 </body>
 </html>

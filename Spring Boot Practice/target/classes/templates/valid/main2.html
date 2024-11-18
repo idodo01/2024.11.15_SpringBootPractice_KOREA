@@ -7,30 +7,37 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    h2 { color: blue; }
+</style>
 <body>
-<h1>VALIDATION 연습을 위한 페이지</h1>
-<form action="/valid/main" method="post" th:object="${superForm}">
+<h1>VALIDATION 연습을 위한 페이지2</h1>
+
+<h2>폼 밖에서 작성하는 방법</h2>
+<div th:errors="${superForm.id}"></div>
+
+<form action="/valid/main2" method="post" th:object="${superForm}">
+    <h2>전역 에러</h2>
     <div th:text="${#fields.globalErrors()}">
         여기는 전역 에러가 있으면 표시되는 곳입니다
     </div>
+    <h2>필드 에러</h2>
     <div th:text="${#fields.errors()}">
         여기는 필드 에러가 있으면 표시되는 곳입니다
     </div>
+    <hr>
+
+
+
     아이디: <input type="text" name="id"> <br>
+    <div style="color: red;" th:if="${#fields.hasErrors()}" th:text="${#fields.errors('id')[0]}"></div>
+    <div th:errors="*{id}">${superForm.id}와 같음</div>
+    나이: <input type="text" name="age" value="5000000"> <br>
     문자: <input type="text" name="validForm.text"> <br>
     숫자: <input type="number" name="validForm.number"> <br>
     날짜: <input type="date" name="validForm.date"> <br>
     <button>보내기</button>
 </form>
-
-
-<!--    <form action="/valid/main" method="post">-->
-<!--        아이디: <input type="text" name="id" th:value="${superForm.id}"> <br>-->
-<!--        문자: <input type="text" name="validForm.text" th:value="${superForm.validForm.text}"> <br>-->
-<!--        숫자: <input type="number" name="validForm.number" th:value="${superForm.validForm.number}"> <br>-->
-<!--        날짜: <input type="date" name="validForm.date" th:value="${superForm.validForm.date}"> <br>-->
-<!--        <button>보내기</button>-->
-<!--    </form>-->
 
 
 
