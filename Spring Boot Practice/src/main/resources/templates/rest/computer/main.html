@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+  <meta charset="UTF-8">
+  <title>COMPUTER REST</title>
+</head>
+<body>
+<h1>COMPUTER REST 연습</h1>
+
+<b>SERIAL NUMBER:</b><input type="text">
+
+<button>GET</button>
+<button>POST</button>
+<button>PUT</button>
+<button>PATCH</button>
+<button>DELETE</button>
+
+</body>
+</html>
+<script>
+  const [getBtn, postBtn, putBtn, patchBtn, deleteBtn] = document.getElementsByTagName('button');
+  getBtn.onclick = () => {
+    fetch(`/rest/computer/get`)
+            .then(response => response.json())
+            .then(console.log);
+  }
+  // postBtn.onclick = () => {
+  //   fetch('/rest/computer/post?serial=C-5&name=post_test', {
+  //     method: "POST"
+  //   });
+  // }
+  postBtn.onclick = () => {
+    const computer = {
+      serial: "TEST-1",
+      price: 5000,
+      name: "테스트 컴퓨터",
+      release: new Date()
+    };
+
+    fetch('/rest/computer/post', {
+      method: "POST",
+      headers: { "Content-Type":"application/json"},
+      body: JSON.stringify(computer)
+    });
+  }
+</script>
+
+
+
+
+
+
+
+
