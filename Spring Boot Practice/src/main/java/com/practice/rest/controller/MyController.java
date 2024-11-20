@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+//컨트롤러에 rest사용하는 방법
+//1. 클래스에 @Controller, 메서드에 @ResponseBody (ex. MyController)
+//2. 클래스에 @RestController (ex. ComputerController)
+
 @Controller
 @RequestMapping("/rest")
 public class MyController {
