@@ -46,17 +46,7 @@ public class SecurityUserDetailsService implements UserDetailsService {
 //        userDTO.setPassword(encodingPw);
 //        return userDTO;
 
-        // 3)
-//        System.out.println("[loadUserByUsername]이 실행되었다. username: " + username);
-//        DummyUserDTO userDTO = new DummyUserDTO();
-//
-//
-//        String encodingPw = passwordEncoder.encode("123");
-//        userDTO.setId("user");
-//        userDTO.setPassword(encodingPw);
-//        return userDTO;
-
-        // 4)     + mapper 추가 했음
+        // 3)     + mapper 추가 했음
         System.out.println("[loadUserByUsername]이 실행되었다. username: " + username);
         // 해당 아이디를 가지는 유저를 찾기! (DB에서)
         DummyUserDTO user = securityUserMapper.getUserById(username);
