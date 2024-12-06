@@ -22,8 +22,9 @@ public class DummyUserDTO implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(
-                new SimpleGrantedAuthority("A"),
-                new SimpleGrantedAuthority("B")
+                new SimpleGrantedAuthority("WRITE"),
+                new SimpleGrantedAuthority("READ"),
+                new SimpleGrantedAuthority("ROLE_NORMAL") // ADMIN이라고하는 역할
         );
     }
 

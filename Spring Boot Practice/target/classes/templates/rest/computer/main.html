@@ -79,6 +79,8 @@
       name: nameInput.value,
       release: releaseInput.value
     };
+
+    console.log(computer);
     fetch('/rest/computer/post', {
       method: "POST",
       headers: {

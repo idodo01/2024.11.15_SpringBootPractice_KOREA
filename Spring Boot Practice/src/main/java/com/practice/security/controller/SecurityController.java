@@ -9,4 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SecurityController {
     @GetMapping("/login")
     public void login() {}
+    @GetMapping("/logout")
+    public void logout() {}
+    @GetMapping("/read")
+    public void read() {}
+    @GetMapping("/write")
+    public void write() {}
+    @GetMapping("/delete")
+    public void delete() {}
 }
